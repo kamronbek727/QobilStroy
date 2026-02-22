@@ -2,14 +2,17 @@
 <html lang="uz" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Qobil Stroy | Sifat va Ishonch Poydevori</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
         
-        body { font-family: 'Montserrat', sans-serif; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
         .gold-color { color: #C5A059; }
         .gold-bg { background-color: #C5A059; }
         .btn-gold { background-color: #C5A059; color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -18,85 +21,90 @@
         .project-card:hover img { transform: scale(1.08); }
         .modal-blur { backdrop-filter: blur(12px); display: none; }
         
-        .nav-scrolled { background-color: rgba(255, 255, 255, 0.95); height: 70px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-scrolled { background-color: rgba(255, 255, 255, 0.98); height: 70px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         
         .loader {
             border: 2px solid #f3f3f3;
             border-radius: 50%;
             border-top: 2px solid #C5A059;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             animation: spin 0.8s linear infinite;
             display: inline-block;
-            vertical-align: middle;
-            margin-right: 8px;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        .glass-effect { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+        .glass-effect { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+        
+        /* Mobil uchun optimizatsiya */
+        @media (max-width: 640px) {
+            h1 { font-size: 3.5rem !important; line-height: 1 !important; }
+            .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 overflow-x-hidden">
 
     <!-- Navigatsiya -->
-    <nav id="mainNav" class="fixed w-full z-50 transition-all duration-300 h-24 flex items-center">
-        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+    <nav id="mainNav" class="fixed w-full z-50 transition-all duration-300 h-20 md:h-24 flex items-center bg-white/10 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 w-full flex justify-between items-center">
             <!-- LOGO -->
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="logo.PNG" alt="Qobil Stroy Logo" class="h-12 md:h-16 object-contain transition-transform group-hover:scale-105" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=QOBIL+STROY';">
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.PNG" alt="Qobil Stroy Logo" class="h-10 md:h-16 object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=QOBIL+STROY';">
             </a>
             
-            <!-- Menu -->
+            <!-- Desktop Menu -->
             <div class="hidden lg:flex gap-10 font-bold text-[11px] uppercase tracking-[0.2em] text-gray-600">
                 <a href="#home" class="hover:text-[#C5A059] transition">Asosiy</a>
                 <a href="#loyihalar" class="hover:text-[#C5A059] transition">Loyihalar</a>
+                <a href="#sharhlar" class="hover:text-[#C5A059] transition">Sharhlar</a>
                 <a href="#biz-haqimizda" class="hover:text-[#C5A059] transition">Biz haqimizda</a>
                 <a href="#aloqa" class="hover:text-[#C5A059] transition">Bog'lanish</a>
             </div>
 
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4 md:gap-6">
                 <a href="tel:+998990623333" class="hidden sm:flex flex-col items-end">
                     <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Sotuv bo'limi</span>
                     <span class="font-extrabold text-gray-900">+998 99 062 33 33</span>
                 </a>
-                <button onclick="openModal()" class="btn-gold px-8 py-3 rounded-full text-[10px] font-extrabold uppercase tracking-widest">Ariza qoldirish</button>
+                <button onclick="openModal()" class="btn-gold px-5 md:px-8 py-2.5 md:py-3 rounded-full text-[10px] font-extrabold uppercase tracking-widest shadow-lg shadow-[#C5A059]/20">Ariza</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gray-50">
-        <div class="absolute right-0 top-0 w-1/2 h-full bg-[#C5A059]/5 skew-x-12 transform origin-right"></div>
+        <div class="absolute right-0 top-0 w-full md:w-1/2 h-full bg-[#C5A059]/5 md:skew-x-12 transform origin-right"></div>
         
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-                <span class="gold-color font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Sifat va Ishonch • 2022</span>
-                <h1 class="text-5xl lg:text-8xl font-black leading-[1.1] mb-8 tracking-tighter">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-center lg:text-left pt-10 md:pt-0">
+                <span class="gold-color font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 md:mb-6 block">Sifat va Ishonch </span>
+                <h1 class="text-5xl md:text-8xl font-black leading-tight mb-6 md:mb-8 tracking-tighter">
                     Kelajakni <br> <span class="gold-color italic">Biz bilan</span> <br> Quring
                 </h1>
-                <p class="text-gray-500 text-lg mb-12 max-w-md leading-relaxed">
+                <p class="text-gray-500 text-base md:text-lg mb-8 md:mb-12 max-w-md mx-auto lg:mx-0 leading-relaxed">
                     “Qobil Stroy” — Navoiy va Samarqand shaharlarida eng zamonaviy, seysmik chidamli va shinam turar joy majmualarini barpo etadi.
                 </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="#loyihalar" class="bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-black transition-all flex items-center gap-3">
-                        Loyihalarni ko'rish <i class="fa-solid fa-arrow-down text-sm"></i>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+                    <a href="#loyihalar" class="w-full sm:w-auto bg-gray-900 text-white px-10 py-4 md:py-5 rounded-2xl font-bold hover:bg-black transition-all flex items-center justify-center gap-3 shadow-xl">
+                        Loyihalar <i class="fa-solid fa-arrow-down text-sm"></i>
                     </a>
-                    <div class="flex -space-x-4">
-                        <img src="https://i.pravatar.cc/100?u=1" class="w-12 h-12 rounded-full border-4 border-white object-cover" alt="User">
-                        <img src="https://i.pravatar.cc/100?u=2" class="w-12 h-12 rounded-full border-4 border-white object-cover" alt="User">
-                        <img src="https://i.pravatar.cc/100?u=3" class="w-12 h-12 rounded-full border-4 border-white object-cover" alt="User">
-                        <div class="w-12 h-12 rounded-full border-4 border-white bg-gray-100 flex items-center justify-center text-[10px] font-bold text-gray-400">+1.5k</div>
+                    <div class="flex -space-x-3">
+                        <img src="https://i.pravatar.cc/100?u=1" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white object-cover" alt="User">
+                        <img src="https://i.pravatar.cc/100?u=2" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white object-cover" alt="User">
+                        <img src="https://i.pravatar.cc/100?u=3" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white object-cover" alt="User">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white bg-gray-100 flex items-center justify-center text-[10px] font-bold text-gray-400">+1.5k</div>
                     </div>
                 </div>
             </div>
             
-            <div class="relative group">
-                <div class="absolute -inset-4 border-2 border-[#C5A059]/30 rounded-[40px] translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform"></div>
-                <div class="rounded-[40px] overflow-hidden shadow-2xl aspect-[4/5] relative">
+            <div class="relative group mt-10 lg:mt-0 px-4 md:px-0">
+                <div class="absolute -inset-2 md:-inset-4 border-2 border-[#C5A059]/30 rounded-[30px] md:rounded-[40px] translate-x-2 md:translate-x-4 translate-y-2 md:translate-y-4 -z-10 transition-transform"></div>
+                <div class="rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl aspect-[4/5] relative">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" class="w-full h-full object-cover" alt="Premium Building">
-                    <div class="absolute bottom-10 left-10 glass-effect p-8 rounded-3xl shadow-xl max-w-xs">
-                        <p class="text-3xl font-black gold-color mb-1">6+</p>
-                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Yirik shahar loyihalari bitkazilgan</p>
+                    <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 glass-effect p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-[160px] md:max-w-xs">
+                        <p class="text-2xl md:text-3xl font-black gold-color mb-1">6+</p>
+                        <p class="text-[9px] md:text-xs font-bold uppercase tracking-widest text-gray-400">Yirik loyihalar bitkazilgan</p>
                     </div>
                 </div>
             </div>
@@ -104,52 +112,124 @@
     </section>
 
     <!-- Loyihalar -->
-    <section id="loyihalar" class="py-32 px-6">
+    <section id="loyihalar" class="py-20 md:py-32 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-20 text-center md:text-left">
                 <div class="max-w-xl">
-                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-6 uppercase">Bizning <span class="gold-color italic">Durdonalar</span></h2>
-                    <p class="text-gray-400 text-lg">Har bir loyiha bizning sifatga bo'lgan sadoqatimiz namunasidir. O'zingizga mosini tanlang.</p>
+                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 md:mb-6 uppercase">Bizning <span class="gold-color italic text-3xl md:text-5xl">Durdonalar</span></h2>
+                    <p class="text-gray-400 text-sm md:text-lg px-4 md:px-0">Har bir loyiha bizning sifatga bo'lgan sadoqatimiz namunasidir.</p>
                 </div>
-                <div class="h-[2px] w-32 bg-[#C5A059] mb-4 hidden md:block"></div>
+                <div class="h-[2px] w-32 bg-[#C5A059] mt-6 hidden md:block"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12" id="projects-container">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" id="projects-container">
                 <!-- JS orqali loyihalar chiqadi -->
             </div>
         </div>
     </section>
 
-    <!-- Biz Haqimizda -->
-    <section id="biz-haqimizda" class="py-32 bg-[#111] text-white overflow-hidden relative">
-        <div class="absolute left-0 bottom-0 w-64 h-64 bg-[#C5A059]/10 rounded-full blur-[100px]"></div>
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
-            <div class="relative">
-                <img src="https://i.pinimg.com/736x/4a/df/ff/4adffff1994a4a31139f3d5d2635d75d.jpg" class="rounded-[3rem] w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" alt="Founder">
-                <div class="absolute -bottom-6 -right-6 gold-bg p-10 rounded-[2rem] shadow-2xl">
-                    <i class="fa-solid fa-quote-left text-4xl opacity-50 mb-4 block"></i>
-                    <p class="font-bold text-xl">"Biz nafaqat uy, balki baxtli hayot poydevorini quramiz."</p>
+    <section id="sharhlar" class="py-20 md:py-32 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 md:mb-24">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">Sharhlar</h2>
+                <p class="text-gray-500 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    Afzalliklarni hamda mijozlar fikrlarini sharh sifatida kiritib o‘tamiz.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Yer osti avtoturargohlar -->
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100 transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl gold-bg flex items-center justify-center text-white"><i class="fa-solid fa-car"></i></div>
+                        <h3 class="text-xl md:text-2xl font-extrabold uppercase">Yer osti avtoturargohlar</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                        Loyihalarimizda ko‘zda tutilgan yer osti avtoturargohlari orqali avtomobilni har qanday ob-havo ta’sirlaridan ishonchli himoya qilish mumkin. Qulaylik va xavfsizlikni ustuvor deb bilganlar uchun yer osti avtoturargohdaki to‘xtash joylari eng maqbul tanlov hisoblanadi.
+                    </p>
+                </div>
+
+                <!-- Eko hududlar -->
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100 transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center text-white"><i class="fa-solid fa-leaf"></i></div>
+                        <h3 class="text-xl md:text-2xl font-extrabold uppercase">Eko hududlar</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                        Loyihalarimiz hududida tashkil etilgan eko-makonlar yaqinlaringiz bilan mazmunli vaqt o‘tkazish, sayr qilish yoki toza havoda xotirjam dam olish uchun ajoyib imkoniyat yaratadi.
+                    </p>
+                </div>
+
+                <!-- Tijoriy maydonlar -->
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100 transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center text-white"><i class="fa-solid fa-shop"></i></div>
+                        <h3 class="text-xl md:text-2xl font-extrabold uppercase">Tijoriy maydonlar</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                        Qulayligingizni inobatga olgan holda, har bir loyihamizning quyi qavatlarida tijoriy maydonlar joylashtirilgan. Bu esa kerakli xaridlarni uydan uzoqqa chiqmagan holda amalga oshirish imkonini beradi.
+                    </p>
+                </div>
+
+                <!-- Bolalar o‘yingohi -->
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100 transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500 flex items-center justify-center text-white"><i class="fa-solid fa-child"></i></div>
+                        <h3 class="text-xl md:text-2xl font-extrabold uppercase">Bolalar o‘yingohi</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                        Loyihalarimizning hududida bolalar uchun xavfsiz va zamonaviy o‘yin maydonchalari barpo etilgan. Bu yerda farzandlaringiz maroqli o‘ynab, faol vaqt o‘tkazishi, siz esa ularning xotirjam va xavfsiz muhitda ekanidan ko‘nglingiz to‘q bo‘lishi mumkin.
+                    </p>
                 </div>
             </div>
-            <div>
-                <span class="gold-color font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Kompaniya Tarixi</span>
-                <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">Mirzayev Nuriddin <br><span class="text-gray-500 font-light italic text-3xl">Eshqobilovich</span></h2>
+        </div>
+    </section>
+
+    <!-- Biz Haqimizda -->
+    <section id="biz-haqimizda" class="py-20 md:py-32 bg-[#111] text-white overflow-hidden relative">
+        <div class="absolute left-0 bottom-0 w-64 h-64 bg-[#C5A059]/10 rounded-full blur-[100px]"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div class="relative px-4 md:px-0">
+                <img src="logo.PNG" class="rounded-[2rem] md:rounded-[3rem] w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl bg-white/5 p-4" alt="Founder">
+                <div class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 gold-bg p-6 md:p-10 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl max-w-[240px] md:max-w-none">
+                    <i class="fa-solid fa-quote-left text-2xl md:text-4xl opacity-50 mb-2 md:mb-4 block"></i>
+                    <p class="font-bold text-sm md:text-xl">"Biz nafaqat uy, balki baxtli hayot poydevorini quramiz."</p>
+                </div>
+            </div>
+            <div class="pt-10 lg:pt-0">
+                <span class="gold-color font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 md:mb-6 block">Biz haqimizda</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-6 md:mb-10 leading-tight">Mirzayev Nuriddin <br><span class="text-gray-500 font-light italic text-2xl md:text-3xl">Eshqobilovich</span></h2>
                 
-                <div class="space-y-8 text-gray-400 text-lg font-light leading-relaxed">
+                <div class="space-y-6 md:space-y-8 text-gray-400 text-sm md:text-lg font-light leading-relaxed">
                     <p>
-                        <strong class="text-white">“Qobil Stroy”</strong> kompaniyasi 2022-yil 5-mayda professional arxitektor va quruvchi Nuriddin Mirzayev tomonidan tashkil etilgan.
+                        <strong class="text-white">“Qobil Stroy”</strong>Bugungi kunda yurtimizda qurilish sohasi jadal sur’atlar bilan rivojlanib bormoqda. Mazkur sohada o‘z o‘rni va nufuziga ega bo‘lib kelayotgan korxonalardan biri — “Qobil Stroy” qurilish kompaniyasidir.
+
+“Qobil Stroy” kompaniyasi 2022 yil 5 may kuni Mirzaev Nuriddin Eshqobilovich tashabbusi bilan tashkil etilgan. Uning rahbarligida korxona qisqa fursat ichida rivojlanib, qurilish bozorida ishonchli va sifatli brend sifatida tanildi.
+
+Kompaniyaning asoschisi va rahbari — Mirzaev Nuriddin Eshqobilovich, 1986 yil 1 may kuni Samarqand viloyati, Qo‘shrabot tumani, Jo‘sh qishlog‘ida tug‘ilgan. U o‘z ish faoliyatida qat’iyat, mas’uliyat va innovatsion yondashuvni ustuvor qiladigan rahbar sifatida tanilgan.
+
+Nuriddin Mirzaev Samarqand arxitektura va qurilish institutini muvaffaqiyatli tamomlab, avvallari qurilish sohasidagi turli loyihalarda qatnashgan, tajriba to‘plagan. Uning rahbarligida “Qobil Stroy” nafaqat yangi bino va turar joylar, balki ishonch, sifat va zamonaviy hayot uchun poydevor yaratayotgan kompaniyaga aylandi.
+
+Nuriddin Eshqobilovich nafaqat tadbirkor, balki yuksak mas’uliyat va zamonaviy fikrga ega rahbar sifatida kompaniya strategiyasiga aniq maqsad va bardavom yondashuvni kiritdi. Uning boshqaruvi ostida “Qobil Stroy” nafaqat uy-joylar, balki ishonch, sifat va qulaylik bunyodkoriga aylandi.
+
+“Qobil Stroy” o‘z faoliyatini 2022 yil 5 mayda mustaqil kompaniya sifatida boshlagan bo‘lsa-da, uning asosida ilgargi yillarda qurilish sohasidagi boy tajriba yotadi.
+
+Dastlab kompaniya boshqa nom ostida, sherikchilik asosidagi loyihalarda ishtirok etgan, turli mijozlar uchun qurilish ishlarini amalga oshirgan. Bu davrda jamoa qurilish jarayonining barcha bosqichlarini puxta o‘rgandi, mijozlar ehtiyojini, bozor talablarini chuqur anglandi.
+
+Keyinchalik, faoliyatdagi yondashuvlar va maqsadlar turlichaligi tufayli, kompaniya mustahkam poydevorga ega, mustaqil brend sifatida “Qobil Stroy” nomini qabul qildi.
+
+Bugungi kunda u oldingi tajribaga suyangan holda, o‘z yo‘nalishini aniq belgilab olgan, mustaqil va jadal rivojlanayotgan qurilish kompaniyasiga aylandi.
+
+Kompaniyaning asosiy faoliyati — ko‘p qavatli turar joy majmualarini barpo etish, zamonaviy arxitekturani milliy an’analar bilan uyg‘unlashtirgan holda, aholi uchun barcha qulayliklarga ega xonadonlar taqdim etishdan iborat.
                     </p>
-                    <p>
-                        Nuriddin Mirzayev 1986-yilda Samarqandda tug'ilgan. Arxitektura sohasidagi boy tajribasini kompaniyaga tatbiq etib, qisqa vaqt ichida Navoiy va Samarqandda yetakchi qurilish tashkilotlaridan biriga aylantirdi.
-                    </p>
-                    <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+                    <div class="grid grid-cols-2 gap-6 md:gap-8 pt-6 md:pt-8 border-t border-white/10">
                         <div>
-                            <p class="text-3xl font-bold text-white mb-1">1.5k+</p>
-                            <p class="text-[10px] uppercase font-bold gold-color tracking-widest">Baxtli Mijozlar</p>
+                            <p class="text-2xl md:text-3xl font-bold text-white mb-1">1.5k+</p>
+                            <p class="text-[9px] md:text-[10px] uppercase font-bold gold-color tracking-widest">Mijozlar</p>
                         </div>
                         <div>
-                            <p class="text-3xl font-bold text-white mb-1">100%</p>
-                            <p class="text-[10px] uppercase font-bold gold-color tracking-widest">Sifat Kafolati</p>
+                            <p class="text-2xl md:text-3xl font-bold text-white mb-1">100%</p>
+                            <p class="text-[9px] md:text-[10px] uppercase font-bold gold-color tracking-widest">Sifat</p>
                         </div>
                     </div>
                 </div>
@@ -158,205 +238,177 @@
     </section>
 
     <!-- Aloqa Modali -->
-    <div id="contactModal" class="fixed inset-0 z-[100] modal-blur flex items-center justify-center p-4 bg-black/70">
-        <div class="bg-white w-full max-w-xl rounded-[2.5rem] p-12 shadow-2xl relative animate-fade-in-up">
-            <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-400 hover:text-black transition">
-                <i class="fa-solid fa-xmark text-2xl"></i>
+    <div id="contactModal" class="fixed inset-0 z-[100] modal-blur flex items-center justify-center p-4 bg-black/80">
+        <div class="bg-white w-full max-w-lg rounded-[2rem] p-8 md:p-12 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             
-            <div class="text-center mb-10">
-                <h3 class="text-4xl font-black tracking-tight mb-4 uppercase">Bepul <span class="gold-color italic">Konsultatsiya</span></h3>
-                <p class="text-gray-400 font-medium">Ma'lumotlaringizni qoldiring, menejerimiz 10 daqiqa ichida siz bilan bog'lanadi.</p>
+            <div class="text-center mb-8">
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-2 uppercase">Bepul <span class="gold-color italic">Konsultatsiya</span></h3>
+                <p class="text-gray-400 text-xs md:text-sm font-medium">Menejerimiz 10 daqiqa ichida bog'lanadi.</p>
             </div>
 
-            <form id="tgForm" class="space-y-6">
-                <div class="group">
-                    <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest ml-1 mb-2 block">To'liq ismingiz</label>
-                    <input type="text" id="name" required placeholder="Masalan: Azizov Anvar" class="w-full px-8 py-5 bg-gray-50 rounded-2xl border-2 border-transparent focus:border-[#C5A059] focus:bg-white outline-none transition-all font-semibold">
+            <form id="tgForm" class="space-y-4 md:space-y-6">
+                <div>
+                    <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest ml-1 mb-1.5 block">To'liq ismingiz</label>
+                    <input type="text" id="name" required placeholder="F.I.SH" class="w-full px-6 py-4 bg-gray-50 rounded-xl border-2 border-transparent focus:border-[#C5A059] outline-none transition-all font-semibold text-sm">
                 </div>
-                <div class="group">
-                    <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest ml-1 mb-2 block">Telefon raqamingiz</label>
-                    <input type="tel" id="phone" required value="+998" class="w-full px-8 py-5 bg-gray-50 rounded-2xl border-2 border-transparent focus:border-[#C5A059] focus:bg-white outline-none transition-all font-black text-xl">
+                <div>
+                    <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest ml-1 mb-1.5 block">Telefon raqam</label>
+                    <input type="tel" id="phone" required value="+998" class="w-full px-6 py-4 bg-gray-50 rounded-xl border-2 border-transparent focus:border-[#C5A059] outline-none transition-all font-black text-lg">
                 </div>
-                <div class="group">
-                    <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest ml-1 mb-2 block">Loyiha tanlang</label>
-                    <select id="project" class="w-full px-8 py-5 bg-gray-50 rounded-2xl border-2 border-transparent focus:border-[#C5A059] focus:bg-white outline-none transition-all font-semibold appearance-none">
+                <div>
+                    <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest ml-1 mb-1.5 block">Loyiha</label>
+                    <select id="project" class="w-full px-6 py-4 bg-gray-50 rounded-xl border-2 border-transparent focus:border-[#C5A059] outline-none transition-all font-semibold text-sm appearance-none">
                         <option>Yangi shahar</option>
                         <option>Yoshlik</option>
                         <option>Sug'diyona</option>
                         <option>Oqtosh kichkintoylari</option>
                         <option>Kadan Ostonasi</option>
                         <option>Registon</option>
-                        <option>Sotuv bo'limi bilan bog'lanish</option>
                     </select>
                 </div>
-                <button type="submit" id="submitBtn" class="w-full btn-gold py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-sm shadow-xl mt-4">
+                <button type="submit" id="submitBtn" class="w-full btn-gold py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-xs shadow-xl mt-2 active:scale-95 transition-transform">
                     Arizani Yuborish
                 </button>
             </form>
-            <div id="statusMsg" class="mt-6 text-center text-sm font-bold hidden"></div>
+            <div id="statusMsg" class="mt-4 text-center text-[10px] font-bold uppercase hidden"></div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer id="aloqa" class="bg-gray-950 pt-24 pb-12 text-white px-6">
+    <footer id="aloqa" class="bg-gray-950 pt-16 md:pt-24 pb-8 text-white px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-16 mb-20">
+            <div class="grid md:grid-cols-4 gap-12 md:gap-16 mb-16">
                 <div class="col-span-1 md:col-span-2">
-                    <img src="logo.PNG" alt="Logo" class="h-16 mb-8 brightness-0 invert" onerror="this.style.display='none'">
-                    <h4 class="text-2xl font-black mb-6 uppercase tracking-tight">QOBIL <span class="gold-color">STROY</span></h4>
-                    <p class="text-gray-500 max-w-sm leading-relaxed mb-8">
-                        Biz faqat binolar quramiz deb aytmaymiz. Biz sizning kelajagingiz uchun poydevor qo'yamiz. Har bir mijoz — bizning oilamiz a'zosi.
+                    <img src="logo.PNG" alt="Logo" class="h-12 mb-6 brightness-0 invert" onerror="this.style.display='none'">
+                    <h4 class="text-xl font-black mb-4 uppercase">QOBIL <span class="gold-color">STROY</span></h4>
+                    <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
+                        Sifat va ishonch poydevori. Navoiy va Samarqand bo'ylab eng yaxshi xonadonlar.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#C5A059] transition shadow-lg"><i class="fa-brands fa-telegram text-xl"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#C5A059] transition shadow-lg"><i class="fa-brands fa-instagram text-xl"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#C5A059] transition shadow-lg"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <!-- Instagram Linki -->
+                        <a href="https://instagram.com/qobilstroy" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#C5A059] transition shadow-lg">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <!-- Telegram Linki -->
+                        <a href="https://t.me/qobilstroy" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#C5A059] transition shadow-lg">
+                            <i class="fa-brands fa-telegram text-lg"></i>
+                        </a>
                     </div>
                 </div>
                 <div>
-                    <h5 class="font-black uppercase tracking-widest text-xs gold-color mb-8">Tezkor Havolalar</h5>
-                    <ul class="space-y-4 text-gray-500 font-bold text-sm">
-                        <li><a href="#home" class="hover:text-white transition">Bosh sahifa</a></li>
-                        <li><a href="#loyihalar" class="hover:text-white transition">Loyihalarimiz</a></li>
+                    <h5 class="font-black uppercase tracking-widest text-[10px] gold-color mb-6">Havolalar</h5>
+                    <ul class="space-y-3 text-gray-500 font-bold text-xs uppercase">
+                        <li><a href="#home" class="hover:text-white transition">Asosiy</a></li>
+                        <li><a href="#loyihalar" class="hover:text-white transition">Loyihalar</a></li>
                         <li><a href="#biz-haqimizda" class="hover:text-white transition">Kompaniya</a></li>
-                        <li><button onclick="openModal()" class="hover:text-white transition">Ariza qoldirish</button></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="font-black uppercase tracking-widest text-xs gold-color mb-8">Bog'lanish</h5>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <i class="fa-solid fa-location-dot gold-color mt-1"></i>
-                            <p class="text-sm text-gray-500 font-bold">Navoiy shahri, Yangi bozor hududi, 22-maktab yonida.</p>
+                    <h5 class="font-black uppercase tracking-widest text-[10px] gold-color mb-6">Bog'lanish</h5>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <i class="fa-solid fa-phone gold-color text-sm"></i>
+                            <a href="tel:+998990623333" class="text-base font-black hover:text-[#C5A059] transition">+998 99 062 33 33</a>
                         </div>
-                        <div class="flex gap-4">
-                            <i class="fa-solid fa-phone gold-color"></i>
-                            <p class="text-lg font-black">+998 99 062 33 33</p>
+                        <div class="flex gap-3">
+                            <i class="fa-solid fa-location-dot gold-color text-sm"></i>
+                            <p class="text-[11px] text-gray-500 font-bold uppercase tracking-tighter">Navoiy sh., 22-maktab hududi.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.3em]">© 2026 QOBIL STROY. All Rights Reserved.</p>
-                <p class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.3em]">Premium Real Estate Group</p>
+            <div class="pt-8 border-t border-white/5 text-center md:text-left">
+                <p class="text-[9px] font-bold text-gray-600 uppercase tracking-widest">© 2026 QOBIL STROY.</p>
             </div>
         </div>
     </footer>
+
 
     <script>
         // Scroll effekti
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('mainNav');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 40) {
                 nav.classList.add('nav-scrolled');
             } else {
                 nav.classList.remove('nav-scrolled');
             }
         });
 
-        // Loyihalar ma'lumotlari (To'liq)
+        // Loyihalar ma'lumotlari
         const projects = [
-            { 
-                name: "Yangi shahar", 
-                loc: "Navoiy shahri, Markaz", 
-                info: "9 va 12 qavatli premium majmua. 333 ta xonadon, erosti parking va xavfsiz hovli.", 
-                img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" 
-            },
-            { 
-                name: "Yoshlik Majmuasi", 
-                loc: "Navoiy, 22-maktab orqasi", 
-                info: "432 ta shinam xonadon. Bolalar maydonchasi, keng yashil hudud va 24/7 qo'riqlash tizimi.", 
-                img: "https://images.unsplash.com/photo-1460317442991-0ec23933a33b?w=800" 
-            },
-            { 
-                name: "Sug'diyona (Navoiy City)", 
-                loc: "Navoiy shahri", 
-                info: "16 qavatli eng baland va zamonaviy majmua. 390 ta xonadon, panoramik oynalar.", 
-                img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800" 
-            },
-            { 
-                name: "Oqtosh kichkintoylari", 
-                loc: "Samarqand, Oqtosh tumani", 
-                info: "Oilalar uchun maxsus loyiha. 76 ta xonadon va majmua ichidagi xususiy bog'cha.", 
-                img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800" 
-            },
-            { 
-                name: "Kadan Ostonasi", 
-                loc: "Samarqand, Kattaqo'rg'on", 
-                info: "144 ta xonadondan iborat yangi turar joy majmuasi. Qulay infratuzilma va zamonaviy liftlar.", 
-                img: "https://images.unsplash.com/photo-1448630360428-6545658536ad?w=800" 
-            },
-            { 
-                name: "Registon Premium", 
-                loc: "Navoiy, Yangi markaz", 
-                info: "257 ta xonadon, erosti avtoturargoh. 12 va 9 qavatli bloklardan tashkil topgan.", 
-                img: "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800" 
-            }
+            { name: "Yangi shahar", loc: "Navoiy shahri, Markaz", info: "Turar joy majmuasi Navoiy shahrining yangi markazida joylashgan bo‘lib, (ofis lokatsiyasi joylanadi) 9 va 12 qavatli mustahkam binolardan iborat. Jami 333 ta xonadondan mavjud.", img: "yangishahar.jpg" },
+            { name: "Yoshlik Majmuasi", loc: "Navoiy, 22-maktab orqasi", info: "Turar joy majmuasi ham Navoiy shahrining yangi markazida joylashgan, (22 maktab orqasida o‘sha yerning lokatsiyasini belgilash kerak) har qanday oila uchun eng maqbul majmualardan biri hisoblanadi. Ushbu loyiha maktab, bog‘cha va barcha zaruriy maskanlarga yaqin hududda joylashgan. Shuningdek, o‘zining yer osti avtoturargohi mavjud. Majmua 2026 yil so‘ngida qurib bitkazilishi ko‘zda tutilgan. Jami 432 ta xonadondan iborat.", img: "https://images.unsplash.com/photo-1460317442991-0ec23933a33b?w=800" },
+            { name: "Sug'diyona", loc: "Navoiy City", info: "“Navoiy city”da qurilayotgan zamonaviy 16 qavat va 390 ta xonadondan iborat turar joy majmuasi. 2026 yil yakunida qurib bitkazilishi ko‘zda tutilgan.", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800" },
+            { name: "Oqtosh kichkintoylari", loc: "Samarqand, Oqtosh", info: "Asosan yosh oilalar uchun mo‘ljallangan, iqtisodiy va zamonaviy uylar majmuasi. Majmuaning birinchi qavatida zamonaviy xususiy bolalar bog‘chasi mavjud. 2026 yilning birinchi choragida qurilish ishlari yakunlanadi. Jami 76 ta xonadondan iborat. (Manzil Samarqand viloyati, Oqtosh tumani Mikrokreditbank orqa tomonida joylashgan.", img: "oqtosh.jpg" },
+            { name: "Kadan Ostonasi", loc: "Kattaqo'rg'on", info: "Samarqand viloyati, Kattaqo‘rg‘on tumanidagi keng qamrovli, hududiy rivojlanishga xizmat qiladigan qurilish loyihasi. Jami 144 ta xonadondan iborat.", img: "kadan.jpg" },
+            { name: "Registon Premium", loc: "Navoiy, Yangi markaz", info: "Navoiy shahrining yangi markazidan qurilayotgan, o‘zining yer osti parkovkasi va zamonaviy ko‘rinishi bilan ajralib turadigan 12 va 9 qavatli turar joy majmuasi. 2027 yilda qurib bitkazilishi ko‘zda tutilgan. Jami 257 ta xonadondan iborat.", img: "registan.jpg" }
         ];
 
         const container = document.getElementById('projects-container');
         projects.forEach(p => {
             container.innerHTML += `
-                <div class="project-card group bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-50 transition-all hover:shadow-2xl">
-                    <div class="relative overflow-hidden h-72">
+                <div class="project-card group bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 transition-all">
+                    <div class="relative overflow-hidden h-60 md:h-72">
                         <img src="${p.img}" class="w-full h-full object-cover transition duration-1000" alt="${p.name}">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all"></div>
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest gold-color shadow-lg">Sotuvda mavjud</div>
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="absolute top-4 left-4 bg-white/95 px-3 py-1.5 rounded-xl text-[9px] font-black uppercase gold-color shadow-md">Premium</div>
                     </div>
-                    <div class="p-10">
-                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-3"><i class="fa-solid fa-map-pin mr-2 gold-color"></i> ${p.loc}</p>
-                        <h3 class="text-2xl font-black mb-4 group-hover:text-[#C5A059] transition uppercase tracking-tighter">${p.name}</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8 font-medium">${p.info}</p>
-                        <button onclick="openModal('${p.name}')" class="w-full py-4 border-2 border-gray-100 rounded-2xl text-xs font-black uppercase tracking-widest hover:border-[#C5A059] hover:text-[#C5A059] transition-all flex items-center justify-center gap-3">
-                            Ma'lumot olish <i class="fa-solid fa-plus text-[10px]"></i>
-                        </button>
+                    <div class="p-6 md:p-10">
+                        <p class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-map-pin mr-1 gold-color"></i> ${p.loc}</p>
+                        <h3 class="text-xl md:text-2xl font-black mb-3 uppercase tracking-tighter">${p.name}</h3>
+                        <p class="text-gray-500 text-xs md:text-sm leading-relaxed mb-6">${p.info}</p>
+                        <button onclick="openModal('${p.name}')" class="w-full py-3.5 border-2 border-gray-100 rounded-xl text-[10px] font-black uppercase tracking-widest hover:border-[#C5A059] hover:text-[#C5A059] transition-all">Bog'lanish</button>
                     </div>
                 </div>
             `;
         });
 
         // Modal funksiyalari
-        function openModal(projectName = 'Umumiy ma\'lumot') {
+        function openModal(projectName = 'Murojaat') {
             document.getElementById('contactModal').style.display = 'flex';
             document.getElementById('project').value = projectName;
             document.body.style.overflow = 'hidden';
+            document.getElementById('statusMsg').classList.add('hidden');
         }
         function closeModal() {
             document.getElementById('contactModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // --- TELEGRAM BOT ---
+        // --- YANGI TELEGRAM BOT SOZLAMALARI ---
         const tgForm = document.getElementById('tgForm');
         const statusMsg = document.getElementById('statusMsg');
         const submitBtn = document.getElementById('submitBtn');
 
-        const botToken = "7449586111:AAF4eT-pB8f_G9xX8_9jXy_9jXy_9jXy_9j"; 
-        const chatId = "584746352"; 
+        // SIZ BERGAN MA'LUMOTLAR
+        const botToken = "8351044776:AAEuPcdB0TjX6AL8Nv4dAT-EP-vl2YK_aM8"; 
+        const chatId = "8137590109"; 
 
         tgForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const project = document.getElementById('project').value;
 
-            const message = `
-🚀 *YANGI ARIZA: QOBIL STROY*
-━━━━━━━━━━━━━━━━━━
-👤 *Mijoz:* ${name}
-📞 *Telefon:* ${phone}
-🏠 *Loyiha:* ${project}
-📅 *Vaqt:* ${new Date().toLocaleString('uz-UZ')}
-━━━━━━━━━━━━━━━━━━
-            `;
+            // Xabar matni
+            const message = `🏢 *YANGI ARIZA: QOBIL STROY*\n\n` +
+                            `👤 *Mijoz:* ${name}\n` +
+                            `📞 *Telefon:* ${phone}\n` +
+                            `🏠 *Loyiha:* ${project}\n` +
+                            `🌐 *Sayt:* Mobil variantdan yuborildi\n` +
+                            `🕒 *Vaqt:* ${new Date().toLocaleString('uz-UZ')}`;
 
+            // Tugmani holati
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="loader"></span> YUBORILMOQDA...';
             statusMsg.classList.remove('hidden');
-            statusMsg.className = "mt-6 text-center text-sm text-blue-500 font-bold uppercase tracking-widest";
-            statusMsg.innerText = "Arizangiz Telegram botga yuborilmoqda...";
+            statusMsg.className = "mt-4 text-center text-[10px] text-blue-500 font-bold uppercase tracking-widest animate-pulse";
+            statusMsg.innerText = "Telegram orqali yuborilmoqda...";
 
             try {
                 const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -370,19 +422,20 @@
                 });
 
                 if (response.ok) {
-                    statusMsg.className = "mt-6 text-center text-sm text-green-500 font-bold uppercase tracking-widest";
-                    statusMsg.innerText = "✅ Ariza yuborildi! Tez orada bog'lanamiz.";
+                    statusMsg.className = "mt-4 text-center text-[10px] text-green-600 font-bold uppercase tracking-widest";
+                    statusMsg.innerText = "✅ ARIZA QABUL QILINDI! RAHMAT.";
                     tgForm.reset();
+                    document.getElementById('phone').value = "+998";
                     setTimeout(closeModal, 2500);
                 } else {
                     throw new Error();
                 }
-            } catch (error) {
-                statusMsg.className = "mt-6 text-center text-sm text-red-500 font-bold uppercase tracking-widest";
-                statusMsg.innerText = "❌ Xato! Qaytadan urinib ko'ring.";
+            } catch (err) {
+                statusMsg.className = "mt-4 text-center text-[10px] text-red-600 font-bold uppercase tracking-widest";
+                statusMsg.innerText = "❌ XATOLIK! QAYTA URINIB KO'RING.";
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerText = "ARIZANI YUBORISH";
+                submitBtn.innerHTML = 'Arizani Yuborish';
             }
         });
     </script>
