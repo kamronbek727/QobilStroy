@@ -456,7 +456,7 @@ Kompaniyaning asosiy faoliyati — ko‘p qavatli turar joy majmualarini barpo e
         const submitBtn = document.getElementById('submitBtn');
 
         // SIZ BERGAN MA'LUMOTLAR
-        const botToken = "8351044776:AAEuPcdB0TjX6AL8Nv4dAT-EP-vl2YK_aM8"; 
+        const botToken = "8507337089:AAGQR2aFkgE2irTZrZttNQDNz4fx1_NxuCw"; 
         const chatId = "8137590109"; 
 
         tgForm.addEventListener('submit', async (e) => {
@@ -471,7 +471,7 @@ Kompaniyaning asosiy faoliyati — ko‘p qavatli turar joy majmualarini barpo e
                             `👤 *Mijoz:* ${name}\n` +
                             `📞 *Telefon:* ${phone}\n` +
                             `🏠 *Loyiha:* ${project}\n` +
-                            `🌐 *Sayt:* Mobil variantdan yuborildi\n` +
+                            // `🌐 *Sayt:* Mobil variantdan yuborildi\n` +
                             `🕒 *Vaqt:* ${new Date().toLocaleString('uz-UZ')}`;
 
             // Tugmani holati
@@ -479,7 +479,7 @@ Kompaniyaning asosiy faoliyati — ko‘p qavatli turar joy majmualarini barpo e
             submitBtn.innerHTML = '<span class="loader"></span> YUBORILMOQDA...';
             statusMsg.classList.remove('hidden');
             statusMsg.className = "mt-4 text-center text-[10px] text-blue-500 font-bold uppercase tracking-widest animate-pulse";
-            statusMsg.innerText = "Telegram orqali yuborilmoqda...";
+            // statusMsg.innerText = "Telegram orqali yuborilmoqda...";
 
             try {
                 const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
