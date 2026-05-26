@@ -147,6 +147,29 @@
                 padding-bottom: 4rem;
             }
         }
+
+        /* Floating animations for the luxury section */
+        @keyframes float-large {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(-0.5deg); }
+        }
+        @keyframes float-medium {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(0.5deg); }
+        }
+        @keyframes float-gifts {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-large-anim {
+            animation: float-large 6s ease-in-out infinite;
+        }
+        .float-medium-anim {
+            animation: float-medium 5s ease-in-out infinite;
+        }
+        .float-gifts-anim {
+            animation: float-gifts 5.5s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -165,8 +188,9 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex gap-10 font-bold text-[11px] uppercase tracking-[0.2em] text-gray-600">
+                <div class="hidden lg:flex lg:gap-8 xl:gap-10 font-bold text-[11px] uppercase tracking-[0.2em] text-gray-600">
                     <a href="#home" class="hover:text-[#C5A059] transition">Asosiy</a>
+                    <a href="#aksiya" class="hover:text-[#C5A059] transition">Aksiya</a>
                     <a href="#loyihalar" class="hover:text-[#C5A059] transition">Loyihalar</a>
                     <a href="#afzalliklarimiz" class="hover:text-[#C5A059] transition">Afzalliklarimiz</a>
                     <a href="#biz-haqimizda" class="hover:text-[#C5A059] transition">Biz haqimizda</a>
@@ -215,6 +239,8 @@
             <div class="flex-1 overflow-y-auto py-8 px-6 space-y-1">
                 <a href="#home" onclick="toggleMobileMenu()"
                     class="block py-4 text-xl font-bold text-gray-900 hover:text-[#C5A059] transition border-b border-gray-50">Asosiy</a>
+                <a href="#aksiya" onclick="toggleMobileMenu()"
+                    class="block py-4 text-xl font-bold text-gray-900 hover:text-[#C5A059] transition border-b border-gray-50">Aksiya</a>
                 <a href="#loyihalar" onclick="toggleMobileMenu()"
                     class="block py-4 text-xl font-bold text-gray-900 hover:text-[#C5A059] transition border-b border-gray-50">Loyihalar</a>
                 <a href="#afzalliklarimiz" onclick="toggleMobileMenu()"
@@ -287,16 +313,200 @@
                         class="absolute -inset-2 md:-inset-4 border-2 border-[#C5A059]/30 rounded-[30px] md:rounded-[40px] translate-x-2 md:translate-x-4 translate-y-2 md:translate-y-4 -z-10 transition-transform">
                     </div>
                     <div class="rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl aspect-[4/5] relative">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
+                        <img src="1.png"
                             class="w-full h-full object-cover"
                             alt="Qobil Stroy qurilish kompaniyasining barpo etgan ko'p qavatli turar joy majmuasi binosi">
-                        <div
+                        <!-- <div
                             class="absolute bottom-6 left-6 md:bottom-10 md:left-10 glass-effect p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-[160px] md:max-w-xs">
                             <p class="text-2xl md:text-3xl font-black gold-color mb-1">6+</p>
                             <p class="text-[9px] md:text-xs font-bold uppercase tracking-widest text-gray-400">Yirik
                                 loyihalar bitkazilgan</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Super Aksiya (Promotional Section) -->
+        <section id="aksiya" class="relative py-24 md:py-32 overflow-hidden bg-white border-b border-gray-100">
+            <!-- Subtle warm luxury glow -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[600px] bg-[radial-gradient(circle_at_top,rgba(253,248,235,0.6),rgba(255,255,255,0)_70%)] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+                <!-- Center Top Heading & Buttons -->
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <div class="flex justify-center mb-6">
+                        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-[#C5A059]/20 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                            <span class="text-xs">🔥</span>
+                            <span class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#C5A059]">Super Aksiya</span>
                         </div>
                     </div>
+                    
+                    <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight leading-none mb-6">
+                        QOBIL STROY’dan<br>
+                        <span class="bg-gradient-to-r from-[#C5A059] via-[#dfba75] to-[#C5A059] bg-clip-text text-transparent font-black tracking-wider uppercase drop-shadow-sm">SUPER AKSIYA!</span>
+                    </h2>
+                    
+                    <p class="text-gray-500 text-sm md:text-base mb-10 leading-relaxed font-medium px-4">
+                        Uy xarid qiling va COBALT hamda DAMAS avtomobillari yutuqli dasturida qatnashing!
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
+                        <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#C5A059] to-[#d9b873] hover:from-[#b08e4d] hover:to-[#C5A059] text-white rounded-full text-[11px] font-bold uppercase tracking-[0.2em] shadow-lg shadow-[#C5A059]/15 hover:shadow-[#C5A059]/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group">
+                            Aksiyada Qatnashish
+                            <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="tel:+998990623333" class="w-full sm:w-auto px-8 py-4 border border-[#C5A059]/30 hover:border-[#C5A059] text-gray-800 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-gray-50 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+                            Bog'lanish
+                            <i class="fa-solid fa-phone text-[10px] text-[#C5A059]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Showcase Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-8 items-start">
+                    
+                    <!-- Left Column: Cobalt Car + Info Cards Stack -->
+                    <div class="flex flex-col gap-12 lg:gap-16">
+                        <!-- Cobalt Showcase -->
+                        <div class="relative group pt-12 pb-6 px-4">
+                            <!-- Floating Pointer Label -->
+                            <div class="absolute -top-6 left-12 z-20 flex flex-col items-center">
+                                <div class="bg-white border border-[#C5A059]/20 rounded-xl px-4 py-2 shadow-sm text-center">
+                                    <span class="block text-[11px] font-black text-gray-900 tracking-wider uppercase">COBALT</span>
+                                    <span class="block text-[8px] font-bold text-[#C5A059] uppercase tracking-wider">Asosiy Sovrin</span>
+                                </div>
+                                <div class="w-[1px] h-8 bg-gradient-to-b from-[#C5A059]/50 to-transparent mt-1"></div>
+                            </div>
+                            <!-- Floating Cobalt Car Image -->
+                            <div class="relative overflow-visible">
+                                <img src="cobalt.png" alt="Cobalt - Qobil Stroy aksiyasi" class="w-full max-w-[360px] h-auto object-contain mx-auto float-large-anim filter drop-shadow-[0_20px_10px_rgba(0,0,0,0.12)] rounded-3xl">
+                                <!-- Realistic shadow -->
+                                <div class="w-[75%] mx-auto h-4 bg-black/10 rounded-full blur-[8px] scale-y-[0.3] mt-2"></div>
+                            </div>
+                            <!-- Thin luxury gold line underneath -->
+                            <div class="w-[85%] mx-auto h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-transparent mt-5"></div>
+                        </div>
+
+                        <!-- Left Info Cards -->
+                        <div class="space-y-4 px-2">
+                            <!-- Card 1 -->
+                            <div class="bg-white border border-[#C5A059]/15 hover:border-[#C5A059]/30 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(197,160,89,0.03)] transition-all duration-300 flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-[#C5A059]/5 border border-[#C5A059]/20 flex items-center justify-center text-[#C5A059] shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-car text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-black uppercase text-gray-900 tracking-wider mb-1">Damas o'yini uchun</h4>
+                                    <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                        90 mln so'mdan ortiq boshlang'ich to'lov amalga oshiring
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="bg-white border border-[#C5A059]/15 hover:border-[#C5A059]/30 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(197,160,89,0.03)] transition-all duration-300 flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-[#C5A059]/5 border border-[#C5A059]/20 flex items-center justify-center text-[#C5A059] shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-car-side text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-black uppercase text-gray-900 tracking-wider mb-1">Cobalt o'yini uchun</h4>
+                                    <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                        150 mln so'mdan ortiq boshlang'ich to'lov amalga oshiring
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="bg-white border border-[#C5A059]/15 hover:border-[#C5A059]/30 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(197,160,89,0.03)] transition-all duration-300 flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-[#C5A059]/5 border border-[#C5A059]/20 flex items-center justify-center text-[#C5A059] shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-gift text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-black uppercase text-gray-900 tracking-wider mb-1">Qo'shimcha sovg'alar</h4>
+                                    <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                        Muzlatgich, televizor, kir yuvish mashinasi, konditsioner, mikrotolqinli pech va boshqa maishiy texnikalarni yutib olish imkoniyati.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center Column: Gifts Showcase -->
+                    <div class="flex items-center justify-center lg:pt-20">
+                        <div class="relative group w-full max-w-[400px] px-4 text-center">
+                            <!-- Floating Gifts Image -->
+                            <div class="relative overflow-visible">
+                                <img src="sovg'alar.png" alt="Sovg'alar - Qobil Stroy aksiyasi" class="w-full h-auto object-contain mx-auto float-gifts-anim filter drop-shadow-[0_20px_12px_rgba(0,0,0,0.1)] rounded-3xl">
+                                <!-- Realistic shadow -->
+                                <div class="w-[70%] mx-auto h-4 bg-black/10 rounded-full blur-[8px] scale-y-[0.3] mt-2"></div>
+                            </div>
+                            <!-- Thin luxury gold line underneath -->
+                            <div class="w-[85%] mx-auto h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-transparent mt-5"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Damas Car + Trophy & Countdown -->
+                    <div class="flex flex-col gap-12 lg:gap-16">
+                        <!-- Damas Showcase -->
+                        <div class="relative group pt-12 pb-6 px-4">
+                            <!-- Floating Pointer Label -->
+                            <div class="absolute -top-6 right-12 z-20 flex flex-col items-center">
+                                <div class="bg-white border border-[#C5A059]/20 rounded-xl px-4 py-2 shadow-sm text-center">
+                                    <span class="block text-[11px] font-black text-gray-900 tracking-wider uppercase">DAMAS</span>
+                                    <span class="block text-[8px] font-bold text-[#C5A059] uppercase tracking-wider">Qo'shimcha Sovrin</span>
+                                </div>
+                                <div class="w-[1px] h-8 bg-gradient-to-b from-[#C5A059]/50 to-transparent mt-1"></div>
+                            </div>
+                            <!-- Floating Damas Car Image -->
+                            <div class="relative overflow-visible">
+                                <img src="damas.png" alt="Damas - Qobil Stroy aksiyasi" class="w-full max-w-[340px] h-auto object-contain mx-auto float-medium-anim filter drop-shadow-[0_20px_10px_rgba(0,0,0,0.12)] rounded-3xl">
+                                <!-- Realistic shadow -->
+                                <div class="w-[75%] mx-auto h-4 bg-black/10 rounded-full blur-[8px] scale-y-[0.3] mt-2"></div>
+                            </div>
+                            <!-- Thin luxury gold line underneath -->
+                            <div class="w-[85%] mx-auto h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-transparent mt-5"></div>
+                        </div>
+
+                        <!-- Right Info Cards & Countdown -->
+                        <div class="space-y-6 px-2">
+                            <!-- Trophy Alert Card -->
+                            <div class="bg-white border border-[#C5A059]/15 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)] flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-trophy text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-600 font-semibold leading-relaxed">
+                                        G'oliblar <strong class="text-gray-900 font-extrabold">10-sentyabr kuni BARABAN</strong> orqali aniqlanadi!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Countdown Card -->
+                            <div class="bg-white border border-[#C5A059]/15 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)]">
+                                <p class="text-[9px] font-black uppercase text-gray-400 tracking-[0.25em] text-center mb-4">Aksiya yakunlanishiga qoldi:</p>
+                                <div class="flex items-center justify-center gap-4">
+                                    <div class="text-center min-w-[50px]">
+                                        <span id="days" class="block text-2xl md:text-3xl font-black text-gray-900 tracking-tight">00</span>
+                                        <span class="block text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1">Kun</span>
+                                    </div>
+                                    <span class="text-lg font-bold text-[#C5A059]/40 mb-4">:</span>
+                                    <div class="text-center min-w-[50px]">
+                                        <span id="hours" class="block text-2xl md:text-3xl font-black text-gray-900 tracking-tight">00</span>
+                                        <span class="block text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1">Soat</span>
+                                    </div>
+                                    <span class="text-lg font-bold text-[#C5A059]/40 mb-4">:</span>
+                                    <div class="text-center min-w-[50px]">
+                                        <span id="minutes" class="block text-2xl md:text-3xl font-black text-gray-900 tracking-tight">00</span>
+                                        <span class="block text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1">Minut</span>
+                                    </div>
+                                    <span class="text-lg font-bold text-[#C5A059]/40 mb-4">:</span>
+                                    <div class="text-center min-w-[50px]">
+                                        <span id="seconds" class="block text-2xl md:text-3xl font-black text-gray-900 tracking-tight">00</span>
+                                        <span class="block text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1">Sekund</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -683,8 +893,8 @@
         const submitBtn = document.getElementById('submitBtn');
 
         // SIZ BERGAN MA'LUMOTLAR
-        const botToken = "8715737778:AAFgov7R2zCyIxbq4G-YiMOMXEMYK-eujEM";
-        const chatId = "7287193979";
+        const botToken = "8507337089:AAGQR2aFkgE2irTZrZttNQDNz4fx1_NxuCw";
+        const chatId = "8137590109";
 
         tgForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -734,9 +944,36 @@
                 submitBtn.innerHTML = 'Arizani Yuborish';
             }
         });
+
+        // --- COUNTDOWN TIMER FOR SUPER AKSIYA ---
+        const targetDate = new Date("September 10, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 
 </html>
-
-
